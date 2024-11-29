@@ -14,6 +14,9 @@ const { envPort, dbURL, sessionKey } = require('./backend/config/config');
 
 //Body Parser
 const bodyParser = require('body-parser');
+
+//Path
+const path = require('path');
 /*************************************************************************************************/
 
 //Database Connection
@@ -44,7 +47,17 @@ app.listen(port, () => {
     console.log(`Server listening at ${port}`);
 });
 
-//Statics
-app.use(express.static('images'));
+//Using EJS Engine Template
+app.set('frontend', path.join(__dirname, '/frontend'));
+app.set('view engine', 'ejs');
+app.engine('ejs', require('ejs').renderFile);
 
-//Routes 
+//Access to CSS,HTML from the Folder named 'images'
+app.use(express.static(path.join(__dirname, 'images')));
+
+/********************************* Routes ***************************************/
+
+//Redirect to the Index Page
+app.use('/', require('./backend/routes/index'));
+
+/*************************************************************************************************/
