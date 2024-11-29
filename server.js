@@ -1,4 +1,4 @@
-/************Dependencies @ Libraries*****************/
+/********************************* Dependencies @ Libraries ***************************************/
 //Express
 const express = require("express");
 const app = express()
@@ -14,7 +14,7 @@ const { envPort, dbURL, sessionKey } = require('./backend/config/config');
 
 //Body Parser
 const bodyParser = require('body-parser');
-/*********************************************************/
+/*************************************************************************************************/
 
 //Database Connection
 mongoose.connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true })
