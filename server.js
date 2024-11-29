@@ -48,16 +48,17 @@ app.listen(port, () => {
 });
 
 //Using EJS Engine Template
-app.set('frontend', path.join(__dirname, '/frontend'));
+app.set('views', path.join(__dirname, '/frontend'));
 app.set('view engine', 'ejs');
 app.engine('ejs', require('ejs').renderFile);
 
-//Access to CSS,HTML from the Folder named 'images'
-app.use(express.static(path.join(__dirname, 'images')));
+//Access the Images used in the System
+app.use(express.static(path.join(__dirname, 'Public')));
 
-/********************************* Routes ***************************************/
+/********************************* Routes *********************************************************/
 
 //Redirect to the Index Page
 app.use('/', require('./backend/routes/index'));
+app.use('/', require('./backend/routes/symptomdetector'));
 
 /*************************************************************************************************/

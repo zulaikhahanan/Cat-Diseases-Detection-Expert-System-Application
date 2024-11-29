@@ -43,7 +43,7 @@
 
         .nav-links a {
             text-decoration: none;
-            color:#0A1D56;
+            color: #0A1D56;
             font-weight: 600;
             background-color: white;
             padding: 8px 15px;
@@ -114,15 +114,25 @@
         }
 
         .cats img {
-            height: 300px; /* Increased size */
+            height: 250px; /* Adjusted size to match the design */
             border-radius: 8px;
+        }
+
+        /* Remove bullets from symptom list */
+        .symptom-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .symptom-list li {
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
     <header class="header">
         <div class="header-left">
-            <img src="/images/cat icon.png" alt="Cat Icon">
+            <img src="Images/cat icon.png" alt="Cat Icon">
         </div>
         <nav class="nav-links">
             <a href="#">Home</a>
@@ -131,27 +141,43 @@
     </header>
 
     <div class="container">
-        <h2>Welcome To Cat Disease Early Detection System</h2>
-        <div class="buttons">
-            <a href="#" class="button">
-                <img src="/images/magnifying-glass-icon.png" alt="Symptom Detector">
-                <span>Symptom Detector</span>
-            </a>
-            <a href="#" class="button">
-                <img src="/images/stethoscope-icon.png" alt="Expert Advice">
-                <span>Expert Advice</span>
-            </a>
-        </div>
-        <button class="start-detect">Start Detect</button>
+        <p>Select the symptoms that your cat is currently experiencing:</p>
+        <ul class="symptom-list">
+            <li><input type="checkbox" id="lossOfAppetite"> <label for="lossOfAppetite">Loss of Appetite</label></li>
+            <li><input type="checkbox" id="vomiting"> <label for="vomiting">Vomiting</label></li>
+            <li><input type="checkbox" id="diarrhea"> <label for="diarrhea">Diarrhea</label></li>
+            <li><input type="checkbox" id="coughing"> <label for="coughing">Coughing</label></li>
+            <li><input type="checkbox" id="sneezing"> <label for="sneezing">Sneezing</label></li>
+        </ul>
+        <button class="start-detect" onclick="detectSymptoms()">Detect</button>
 
         <div class="cats">
-            <img src="/images/meow 1.png" alt="Cat Image">
-            <img src="/images/meow 2.png" alt="Cat Image">
+            <img src="Images/meow 1.png" alt="Cat Image">
+            <img src="Images/meow 2.png" alt="Cat Image">
         </div>
     </div>
 
     <footer class="footer">
-       <B>©2024 Cat Disease Early Detection System. All Rights Reserved</B> 
+       <b>©2024 Cat Disease Early Detection System. All Rights Reserved</b> 
     </footer>
+
+    <script>
+        function detectSymptoms() {
+            // Collect selected symptoms
+            let symptoms = [];
+            if (document.getElementById("lossOfAppetite").checked) symptoms.push("Loss of Appetite");
+            if (document.getElementById("vomiting").checked) symptoms.push("Vomiting");
+            if (document.getElementById("diarrhea").checked) symptoms.push("Diarrhea");
+            if (document.getElementById("coughing").checked) symptoms.push("Coughing");
+            if (document.getElementById("sneezing").checked) symptoms.push("Sneezing");
+
+            // Display selected symptoms
+            if (symptoms.length > 0) {
+                alert("Detected Symptoms:\n" + symptoms.join(", "));
+            } else {
+                alert("No symptoms selected. Please select at least one symptom.");
+            }
+        }
+    </script>
 </body>
 </html>
