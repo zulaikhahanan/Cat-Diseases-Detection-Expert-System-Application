@@ -56,10 +56,8 @@ app.engine('ejs', require('ejs').renderFile);
 app.use(express.static(path.join(__dirname, 'Public')));
 
 /********************************* Routes *********************************************************/
-
 //Redirect to the Index Page
 app.use('/', require('./backend/routes/index'));
 app.use('/', require('./backend/routes/diseasechecklist'));
 app.use('/', require('./backend/routes/diseasediagnosis'));
-
 /*************************************************************************************************/
