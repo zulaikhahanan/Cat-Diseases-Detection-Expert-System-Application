@@ -11,7 +11,7 @@ router.get('/Result', function(req, res, next) {
     res.render('symptom description');
   });
 
-// POST route to submit cat disease data
+// POST route to submit cat diseasedata
 router.post('/diagnose', async (req, res) => {
   const { name, symptoms, description, treatment } = req.body;
 
