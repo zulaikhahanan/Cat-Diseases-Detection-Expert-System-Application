@@ -1,3 +1,4 @@
+
 (deffacts cat-diseases
    (disease (name "Feline Immunodeficiency Virus (FIV)"
                   (symptoms "Weight loss, dental disease, recurrent infections, fever, swollen lymph nodes")
