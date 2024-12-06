@@ -42,7 +42,7 @@ app.use(
 );
 
 //Port
-const port = envPort || 8000;
+const port = envPort || 5001;
 app.listen(port, () => {
     console.log(`Server listening at ${port}`);
 });
